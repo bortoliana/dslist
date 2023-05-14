@@ -6,6 +6,7 @@ import com.devsuperior.dslist.entities.Game;
 import com.devsuperior.dslist.projection.GameMinProjection;
 import com.devsuperior.dslist.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,8 +31,8 @@ public class GameService {
     }
 
     @Transactional(readOnly = true)
-    public List <GameMinDTO> findByList(Long listId){
+    public ResponseEntity<Long> findByList(Long listId){
         List<GameMinProjection> result = gameRepository.searchByList(listId);
-        return result.stream().map(x ->  new GameMinDTO(x)).toList();
+        return ResponseEntity.ok(listId);
     }
 }

@@ -30,7 +30,7 @@ public class GameListApi {
 
     @GetMapping(value = "/{listId}/games")
     public List<GameMinDTO> findByList(@PathVariable Long listId) {
-        List<GameMinDTO> result = gameService.findByList(listId);
+        List<GameMinDTO> result = (List<GameMinDTO>) gameService.findByList(listId);
         return result;
     }
 }

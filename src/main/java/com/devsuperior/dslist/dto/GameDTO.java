@@ -4,6 +4,9 @@ import com.devsuperior.dslist.entities.Game;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.BeanUtils;
+import org.springframework.http.ResponseEntity;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -26,5 +29,11 @@ public class GameDTO {
         BeanUtils.copyProperties(entity, this);
     }
 
+    public static List<ResponseEntity> findById(Long id) {
+        return null;
+    }
 
+    public static ResponseEntity<?> ok(Long result) {
+        return null;
+    }
 }
